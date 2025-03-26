@@ -18,14 +18,14 @@ int main() {
     // Solicita os dados para a Carta 1
     printf("\n***** Carta 1 *****\n");
     printf("Digite o Estado (ex: A):\n ");
-    scanf("%c", &estado1);
+    scanf(" %c", &estado1);  // Espaço antes para limpar o buffer
     printf("Digite o código da carta (ex: A01):\n ");
     scanf("%s", codigo1);
     printf("Digite o nome da cidade (ex: São Paulo):\n ");
-    scanf("%c", cidade1);  
+    scanf(" %[^\n]", cidade1);  // Captura até a nova linha
     printf("Digite a população (ex: 12325000):\n ");
     scanf("%lu", &populacao1);
-    printf("Digite a área da cidade (ex: 1521.11:):\n ");
+    printf("Digite a área da cidade (ex: 1521.11):\n ");
     scanf("%f", &area1);
     printf("Digite o PIB da cidade (ex: 699.28):\n ");
     scanf("%f", &pib1);
@@ -35,9 +35,6 @@ int main() {
     densidade1 = (float)populacao1 / area1;
     divisaopib1 = (pib1 * 1e9) / populacao1; // Convertendo PIB de bilhões para milhões
     super_poder1 = (float)populacao1 + area1 + pib1 + pontos1 + (1 / densidade1) + divisaopib1;
-
-
-
 
     // Declaração e inicialização das variáveis para a segunda carta
     char estado2;
@@ -54,11 +51,11 @@ int main() {
     // Solicita os dados para a Carta 2
     printf("\n***** Carta 2 *****\n");
     printf("Digite o Estado (ex: B):\n ");
-    scanf(" %c", &estado2);
+    scanf(" %c", &estado2);  // Espaço antes para limpar o buffer
     printf("Digite o código da carta (ex: B02):\n ");
     scanf("%s", codigo2);
-    printf("Digite o nome da cidade(ex: Rio de janeiro):\n ");
-    scanf(" %c", cidade2); 
+    printf("Digite o nome da cidade(ex: Rio de Janeiro):\n ");
+    scanf(" %[^\n]", cidade2);  // Captura até a nova linha
     printf("Digite a população (ex: 6748000):\n ");
     scanf("%lu", &populacao2);
     printf("Digite a área da cidade (ex:1200.25):\n ");
@@ -72,8 +69,6 @@ int main() {
     divisaopib2 = (pib2 * 1e9) / populacao2; // Convertendo PIB de bilhões para milhões
     super_poder2 = (float)populacao2 + area2 + pib2 + pontos2 + (1 / densidade2) + divisaopib2;
 
-
-    
     // Comparação de cada atributo (exceto estado, código e nome)
     int vencedor_populacao = (populacao1 > populacao2) ? 1 : 2;
     int vencedor_area = (area1 > area2) ? 1 : 2;
